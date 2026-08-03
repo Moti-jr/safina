@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block title %}{{ project.title }} — Safina Initiative{% endblock %}
+{% block meta_description %}{{ project.meta_description|default:project.summary }}{% endblock %}
+{% block content %}
+
+<section class="page-banner">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-2">
+        <li class="breadcrumb-item">
+          <a href="{% url 'pages:home' %}" class="text-white-50">Home</a></li>
+        <li class="breadcrumb-item">
+          <a href="{% url 'projects:list' %}" class="text-white-50">Projects</a></li>
+        <li class="breadcrumb-item active text-white">{{ project.title }}</li>
+      </ol>
+    </nav>
+    <h1>{{ project.title }}</h1>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <img src="{{ project.image.url }}" alt="{{ project.title }}"
+             class="img-fluid rounded-4 shadow mb-4 w-100"
+             style="max-height:420px;object-fit:cover;">
+        <div class="prose text-muted" style="line-height:1.9;">
+          {{ project.description|linebreaks }}
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card-custom p-4 sticky-top" style="top:90px;">
+          <h6 class="fw-semibold mb-3 text-primary">Project Details</h6>
+          <ul class="list-unstyled text-muted small">
+            {% if project.category %}
+            <li class="mb-2">
+              <i class="fa fa-tag me-2 text-primary"></i>
+              {{ project.category.name }}
+            </li>
+            {% endif %}
+            <li class="mb-2">
+              <i class="fa fa-circle-check me-2 text-primary"></i>
+              {{ project.get_status_display }}
+            </li>
+            {% if project.location %}
+            <li class="mb-2">
+              <i class="fa fa-location-dot me-2 text-primary"></i>
+              {{ project.location }}
+            </li>
+            {% endif %}
+            {% if project.beneficiaries %}
+            <li class="mb-2">
+              <i class="fa fa-users me-2 text-primary"></i>
+              {{ project.beneficiaries }} beneficiaries
+            </li>
+            {% endif %}
+            {% if project.start_date %}
+            <li class="mb-2">
+              <i class="fa fa-calendar me-2 text-primary"></i>
+              {{ project.start_date|date:"M Y" }}
+              {% if project.end_date %}— {{ project.end_date|date:"M Y" }}{% endif %}
+            </li>
+            {% endif %}
+          </ul>
+          <hr>
+          <a href="{% url 'donations:donate' %}"
+             class="btn btn-donate rounded-pill w-100 mb-2">
+            <i class="fa fa-heart me-2"></i>Support This Project
+          </a>
+          <a href="{% url 'contact:contact' %}"
+             class="btn btn-outline-success rounded-pill w-100">
+            <i class="fa fa-envelope me-2"></i>Get in Touch
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related projects -->
+    {% if related %}
+    <div class="mt-5">
+      <h4 class="fw-semibold mb-4">Related Projects</h4>
+      <div class="row g-4">
+        {% for p in related %}
+        <div class="col-md-4">
+          <div class="card-custom h-100">
+            <img src="{{ p.image.url }}" alt="{{ p.title }}"
+                 class="card-img-top" style="height:180px;object-fit:cover;">
+            <div class="p-3">
+              <h6 class="fw-semibold mb-1">{{ p.title }}</h6>
+              <p class="text-muted small mb-2">{{ p.summary|truncatewords:12 }}</p>
+              <a href="{% url 'projects:detail' slug=p.slug %}"
+                 class="small text-primary fw-semibold">
+                Learn more <i class="fa fa-arrow-right ms-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}
+
+{% block meta_description %}{{ project.meta_description|default:project.summary }}{% endblock %}
+{% block og_title %}{{ project.title }} — Safina Initiative{% endblock %}
+{% block og_description %}{{ project.summary }}{% endblock %}
+{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{{ project.image.url }}{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Our Vision — Safina Initiative{% endblock %}
+{% block content %}
+
+<section class="page-banner">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-2">
+        <li class="breadcrumb-item">
+          <a href="{% url 'pages:home' %}" class="text-white-50">Home</a></li>
+        <li class="breadcrumb-item active text-white">Vision</li>
+      </ol>
+    </nav>
+    <h1 class="mb-2">Our Vision</h1>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <i class="fa fa-eye fa-4x text-primary mb-4"></i>
+        <h2 class="section-title mb-4">Where We Are Going</h2>
+        <div class="divider mx-auto mb-4"></div>
+        <p class="lead text-muted">
+          We believe that human beings, regardless of their circumstance, deserve the opportunity to flourish in both mind and body. In this way, we are dedicated to the idea that access to health care and to quality education are basic human rights. 
+
+We believe that healthy, educated individuals create healthy, vibrant communities.  Create enough of these communities, and we will have gone a long way to establish a prosperous, peaceful, and sustainable world.
+        </p>
+        <a href="{% url 'pages:mission' %}" class="btn btn-primary-green rounded-pill px-4 mt-4">
+          See Our Mission <i class="fa fa-arrow-right ms-2"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

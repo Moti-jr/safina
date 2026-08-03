@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Privacy Policy — Safina Initiative{% endblock %}
+{% block content %}
+<section class="page-banner">
+  <div class="container">
+    <h1>Privacy Policy</h1>
+  </div>
+</section>
+<section class="section-pad">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-muted" style="line-height:1.9;">
+        <p>Last updated: {% now "d F Y" %}</p>
+        <h5 class="text-dark fw-semibold mt-4">Information We Collect</h5>
+        <p>We collect information you provide directly to us through our contact,
+           volunteer, and donation forms.</p>
+        <h5 class="text-dark fw-semibold mt-4">How We Use It</h5>
+        <p>We use your information solely to respond to your inquiry and
+           improve our services. We never sell your data.</p>
+        <h5 class="text-dark fw-semibold mt-4">Contact</h5>
+        <p>Questions? Email us at
+          <a href="mailto:info@safinainitiative.org">info@safinainitiative.org</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

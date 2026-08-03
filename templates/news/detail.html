@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}{{ article.title }} — Safina Initiative{% endblock %}
+{% block content %}
+<section class="page-banner">
+  <div class="container">
+    <nav aria-label="breadcrumb"><ol class="breadcrumb mb-2">
+      <li class="breadcrumb-item"><a href="{% url 'pages:home' %}" class="text-white-50">Home</a></li>
+      <li class="breadcrumb-item"><a href="{% url 'news:list' %}" class="text-white-50">News</a></li>
+      <li class="breadcrumb-item active text-white">{{ article.title|truncatewords:5 }}</li>
+    </ol></nav>
+    <h1>{{ article.title }}</h1>
+    <p class="mb-0 opacity-75">
+      <i class="fa fa-calendar me-1"></i>{{ article.published_at|date:"d M Y" }}
+    </p>
+  </div>
+</section>
+<section class="section-pad">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <img src="{{ article.image.url }}" alt="{{ article.title }}"
+             class="img-fluid rounded-4 shadow mb-4 w-100"
+             style="max-height:400px;object-fit:cover;">
+        {% if article.tags.all %}
+        <div class="mb-4 d-flex flex-wrap gap-2">
+          {% for tag in article.tags.all %}
+          <a href="?tag={{ tag.slug }}" class="badge-primary">{{ tag.name }}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
+        <div class="text-muted" style="line-height:1.9;">
+          {{ article.body|linebreaks }}
+        </div>
+        <hr class="my-5">
+        {% if related %}
+        <h5 class="fw-semibold mb-4">More Articles</h5>
+        <div class="row g-3">
+          {% for a in related %}
+          <div class="col-md-4">
+            <div class="card-custom h-100">
+              <img src="{{ a.image.url }}" alt="{{ a.title }}"
+                   style="height:140px;object-fit:cover;" class="w-100">
+              <div class="p-3">
+                <h6 class="fw-semibold small mb-1">{{ a.title|truncatewords:8 }}</h6>
+                <a href="{% url 'news:detail' slug=a.slug %}"
+                   class="small text-primary">Read more →</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+
+{% block meta_description %}{{ article.meta_description|default:article.summary }}{% endblock %}
+{% block og_title %}{{ article.title }} — Safina Initiative{% endblock %}
+{% block og_description %}{{ article.summary }}{% endblock %}
+{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{{ article.image.url }}{% endblock %}

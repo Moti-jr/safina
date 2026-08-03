@@ -1,0 +1,117 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg sticky-top" id="mainNav">
+  <div class="container-fluid px-4">
+
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center gap-2" href="{% url 'pages:home' %}">
+      <img src="{% static 'images/logo.png' %}"
+           alt="Safina Initiative"
+           height="40" width="40"
+           style="object-fit:contain;border-radius:6px;"
+           onerror="this.style.display='none'">
+      <span class="brand-name">Safina <span class="text-accent">Initiative</span></span>
+    </a>
+
+    <!-- Mobile toggle -->
+    <button class="navbar-toggler border-0" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navMenu"
+            aria-controls="navMenu" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Nav links — evenly distributed across full width -->
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto d-flex justify-content-center
+                 align-items-lg-center w-100 gap-lg-1">
+
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
+             href="{% url 'pages:home' %}">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#"
+             role="button" data-bs-toggle="dropdown">About</a>
+          <ul class="dropdown-menu shadow border-0">
+            <li><a class="dropdown-item" href="{% url 'pages:about' %}">
+              <i class="fa fa-users fa-fw me-2 text-primary"></i>Who We Are</a></li>
+            <li><a class="dropdown-item" href="{% url 'pages:mission' %}">
+              <i class="fa fa-bullseye fa-fw me-2 text-primary"></i>Mission</a></li>
+            <li><a class="dropdown-item" href="{% url 'pages:vision' %}">
+              <i class="fa fa-eye fa-fw me-2 text-primary"></i>Vision</a></li>
+            <li><a class="dropdown-item" href="{% url 'pages:history' %}">
+              <i class="fa fa-timeline fa-fw me-2 text-primary"></i>History</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#"
+             role="button" data-bs-toggle="dropdown">Projects</a>
+          <ul class="dropdown-menu shadow border-0">
+            <li><a class="dropdown-item" href="{% url 'projects:list' %}">
+              <i class="fa fa-th-large fa-fw me-2 text-primary"></i>All Projects</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item"
+                   href="{% url 'projects:by_category' slug='education' %}">
+              <i class="fa fa-graduation-cap fa-fw me-2 text-primary"></i>Education</a></li>
+            <li><a class="dropdown-item"
+                   href="{% url 'projects:by_category' slug='healthcare' %}">
+              <i class="fa fa-heart-pulse fa-fw me-2 text-primary"></i>Healthcare</a></li>
+            <li><a class="dropdown-item"
+                   href="{% url 'projects:by_category' slug='women-girls' %}">
+              <i class="fa fa-venus fa-fw me-2 text-primary"></i>Women & Girls</a></li>
+            <li><a class="dropdown-item"
+                   href="{% url 'projects:by_category' slug='community' %}">
+              <i class="fa fa-seedling fa-fw me-2 text-primary"></i>Community</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'news:list' %}">News</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#"
+             role="button" data-bs-toggle="dropdown">Media</a>
+          <ul class="dropdown-menu shadow border-0">
+            <li><a class="dropdown-item" href="{% url 'gallery:gallery' %}">
+              <i class="fa fa-images fa-fw me-2 text-primary"></i>Gallery</a></li>
+            <li><a class="dropdown-item" href="{% url 'gallery:videos' %}">
+              <i class="fa fa-video fa-fw me-2 text-primary"></i>Videos</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'volunteers:volunteer' %}">Volunteer</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contact:contact' %}">Contact</a>
+        </li>
+
+      </ul>
+
+      <!-- Right side actions -->
+      <div class="d-flex align-items-center gap-2 ms-lg-3">
+
+        <!-- Dark mode toggle -->
+        <button class="btn btn-sm rounded-circle border-0 p-2"
+                id="themeToggle"
+                style="background:rgba(0,0,0,.06);width:36px;height:36px;
+                       display:flex;align-items:center;justify-content:center;"
+                aria-label="Toggle dark mode">
+          <i class="fa fa-moon" id="themeIcon" style="font-size:.85rem;"></i>
+        </button>
+
+        <!-- Donate CTA -->
+        <a href="{% url 'donations:donate' %}"
+           class="btn btn-donate rounded-pill px-4 py-2 fw-semibold"
+           style="font-size:.88rem;white-space:nowrap;">
+          <i class="fa fa-heart me-1"></i> Donate
+        </a>
+
+      </div>
+    </div>
+  </div>
+</nav>

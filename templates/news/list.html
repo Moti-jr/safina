@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %}News — Safina Initiative{% endblock %}
+{% block content %}
+<section class="page-banner">
+  <div class="container">
+    <nav aria-label="breadcrumb"><ol class="breadcrumb mb-2">
+      <li class="breadcrumb-item"><a href="{% url 'pages:home' %}" class="text-white-50">Home</a></li>
+      <li class="breadcrumb-item active text-white">News</li>
+    </ol></nav>
+    <h1>Latest News</h1>
+    <p class="mb-0 opacity-75">Stories, updates and impact from the field.</p>
+  </div>
+</section>
+<section class="section-pad">
+  <div class="container">
+    <!-- Tag filters -->
+    <div class="d-flex flex-wrap gap-2 mb-5 justify-content-center">
+      <a href="{% url 'news:list' %}"
+         class="btn btn-sm rounded-pill px-4 {% if not active_tag %}btn-success{% else %}btn-outline-success{% endif %}">
+        All
+      </a>
+      {% for tag in tags %}
+      <a href="?tag={{ tag.slug }}"
+         class="btn btn-sm rounded-pill px-3 {% if active_tag == tag.slug %}btn-success{% else %}btn-outline-success{% endif %}">
+        {{ tag.name }}
+      </a>
+      {% endfor %}
+    </div>
+    <div class="row g-4">
+      {% for article in articles %}
+      <div class="col-lg-4 col-md-6">
+        <div class="card-custom h-100">
+          <div class="overflow-hidden" style="height:200px;">
+            <img src="{{ article.image.url }}" alt="{{ article.title }}"
+                 class="w-100 h-100" style="object-fit:cover;">
+          </div>
+          <div class="p-4">
+            <small class="text-muted">
+              <i class="fa fa-calendar me-1"></i>
+              {{ article.published_at|date:"d M Y" }}
+            </small>
+            <h5 class="fw-semibold mt-2 mb-2">{{ article.title }}</h5>
+            <p class="text-muted small mb-3">{{ article.summary|truncatewords:18 }}</p>
+            <a href="{% url 'news:detail' slug=article.slug %}"
+               class="btn btn-outline-success btn-sm rounded-pill px-3">
+              Read More <i class="fa fa-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="col-12 text-center py-5 text-muted">
+        <i class="fa fa-newspaper fa-3x mb-3 text-primary"></i>
+        <p>No articles yet. Add some via the admin panel.</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% if is_paginated %}
+    <nav class="mt-5 d-flex justify-content-center">
+      <ul class="pagination gap-1">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a class="page-link rounded-pill" href="?page={{ page_obj.previous_page_number }}">
+            <i class="fa fa-chevron-left"></i></a></li>
+        {% endif %}
+        {% for num in page_obj.paginator.page_range %}
+        <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+          <a class="page-link rounded-pill" href="?page={{ num }}">{{ num }}</a></li>
+        {% endfor %}
+        {% if page_obj.has_next %}
+        <li class="page-item">
+          <a class="page-link rounded-pill" href="?page={{ page_obj.next_page_number }}">
+            <i class="fa fa-chevron-right"></i></a></li>
+        {% endif %}
+      </ul>
+    </nav>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

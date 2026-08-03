@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Page Not Found — Safina Initiative{% endblock %}
+{% block content %}
+<div class="min-vh-100 d-flex align-items-center justify-content-center text-center py-5">
+  <div>
+    <h1 class="display-1 fw-bold text-primary">404</h1>
+    <h2 class="mb-3">Page Not Found</h2>
+    <p class="text-muted mb-4">The page you are looking for does not exist.</p>
+    <a href="{% url 'pages:home' %}" class="btn btn-donate rounded-pill px-4 py-2">
+      <i class="fa fa-home me-2"></i>Back to Home
+    </a>
+  </div>
+</div>
+{% endblock %}

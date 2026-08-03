@@ -1,0 +1,14 @@
+<section class="page-banner">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-2">
+        <li class="breadcrumb-item">
+          <a href="{% url 'pages:home' %}" class="text-white-50">Home</a>
+        </li>
+        {% block breadcrumb %}{% endblock %}
+      </ol>
+    </nav>
+    <h1 class="mb-2">{% block banner_title %}{% endblock %}</h1>
+    <p class="mb-0 opacity-75">{% block banner_subtitle %}{% endblock %}</p>
+  </div>
+</section>

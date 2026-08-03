@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block title %}Projects — Safina Initiative{% endblock %}
+{% block content %}
+
+<section class="page-banner">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-2">
+        <li class="breadcrumb-item">
+          <a href="{% url 'pages:home' %}" class="text-white-50">Home</a></li>
+        <li class="breadcrumb-item active text-white">Projects</li>
+      </ol>
+    </nav>
+    <h1>Our Projects</h1>
+    <p class="mb-0 opacity-75">Changing lives one community at a time.</p>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="container">
+
+    <!-- Category filters -->
+    <div class="d-flex flex-wrap gap-2 mb-5 justify-content-center">
+      <a href="{% url 'projects:list' %}"
+         class="btn rounded-pill btn-sm px-4
+                {% if not active_category %}btn-success{% else %}btn-outline-success{% endif %}">
+        All
+      </a>
+      {% for cat in categories %}
+      <a href="{% url 'projects:by_category' slug=cat.slug %}"
+         class="btn rounded-pill btn-sm px-4
+                {% if active_category == cat.slug %}btn-success{% else %}btn-outline-success{% endif %}">
+        {% if cat.icon %}<i class="fa {{ cat.icon }} me-1"></i>{% endif %}
+        {{ cat.name }}
+      </a>
+      {% endfor %}
+    </div>
+
+    <!-- Projects grid -->
+    <div class="row g-4">
+      {% for project in projects %}
+      <div class="col-lg-4 col-md-6">
+        <div class="card-custom h-100">
+          <div class="overflow-hidden" style="height:220px;">
+            <img src="{{ project.image.url }}" alt="{{ project.title }}"
+                 class="card-img-top w-100 h-100" style="object-fit:cover;">
+          </div>
+          <div class="p-4">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              {% if project.category %}
+              <span class="badge-primary">{{ project.category.name }}</span>
+              {% endif %}
+              <span class="badge bg-{% if project.status == 'ongoing' %}success
+                           {% elif project.status == 'completed' %}secondary
+                           {% else %}warning text-dark{% endif %} rounded-pill">
+                {{ project.get_status_display }}
+              </span>
+            </div>
+            <h5 class="fw-semibold mb-2">{{ project.title }}</h5>
+            <p class="text-muted small mb-3">{{ project.summary|truncatewords:18 }}</p>
+            {% if project.beneficiaries %}
+            <p class="small text-primary mb-3">
+              <i class="fa fa-users me-1"></i>
+              {{ project.beneficiaries }} beneficiaries
+            </p>
+            {% endif %}
+            <a href="{% url 'projects:detail' slug=project.slug %}"
+               class="btn btn-outline-success btn-sm rounded-pill px-3">
+              Learn More <i class="fa fa-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="col-12 text-center py-5 text-muted">
+        <i class="fa fa-folder-open fa-3x mb-3 text-primary"></i>
+        <p>No projects found. Add some via the admin panel.</p>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    {% if is_paginated %}
+    <nav class="mt-5 d-flex justify-content-center" aria-label="Projects pagination">
+      <ul class="pagination gap-1">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+          <a class="page-link rounded-pill" href="?page={{ page_obj.previous_page_number }}">
+            <i class="fa fa-chevron-left"></i>
+          </a>
+        </li>
+        {% endif %}
+        {% for num in page_obj.paginator.page_range %}
+        <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+          <a class="page-link rounded-pill" href="?page={{ num }}">{{ num }}</a>
+        </li>
+        {% endfor %}
+        {% if page_obj.has_next %}
+        <li class="page-item">
+          <a class="page-link rounded-pill" href="?page={{ page_obj.next_page_number }}">
+            <i class="fa fa-chevron-right"></i>
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+    {% endif %}
+
+  </div>
+</section>
+{% endblock %}

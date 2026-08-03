@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}Donate — Safina Initiative{% endblock %}
+{% block content %}
+<section class="page-banner">
+  <div class="container">
+    <nav aria-label="breadcrumb"><ol class="breadcrumb mb-2">
+      <li class="breadcrumb-item"><a href="{% url 'pages:home' %}" class="text-white-50">Home</a></li>
+      <li class="breadcrumb-item active text-white">Donate</li>
+    </ol></nav>
+    <h1>Make a Donation</h1>
+    <p class="mb-0 opacity-75">Your generosity changes lives.</p>
+  </div>
+</section>
+<section class="section-pad">
+  <div class="container">
+    <div class="row g-5 justify-content-center">
+      <div class="col-lg-7">
+        <div class="card-custom p-4 p-md-5">
+          <h4 class="fw-semibold mb-4">Donation Inquiry</h4>
+          <form method="post" novalidate>
+            {% csrf_token %}
+            <div class="row g-3">
+              <div class="col-12">{{ form.name }}</div>
+              <div class="col-md-6">{{ form.email }}</div>
+              <div class="col-md-6">{{ form.phone }}</div>
+              <div class="col-md-6">{{ form.donation_type }}</div>
+              <div class="col-md-6">{{ form.amount }}</div>
+              <div class="col-12">{{ form.message }}</div>
+              <div class="col-12">
+                <button type="submit"
+                        class="btn btn-donate rounded-pill px-5 py-2 w-100 fw-semibold">
+                  <i class="fa fa-heart me-2"></i>Submit Donation Inquiry
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card-custom p-4 bg-light-custom">
+          <h6 class="fw-semibold mb-3 text-primary">Why Donate?</h6>
+          <ul class="list-unstyled text-muted small">
+            <li class="mb-3 d-flex gap-2">
+              <i class="fa fa-check-circle text-primary mt-1"></i>
+              <span>100% of donations go directly to community programs</span>
+            </li>
+            <li class="mb-3 d-flex gap-2">
+              <i class="fa fa-check-circle text-primary mt-1"></i>
+              <span>Full transparency and impact reporting</span>
+            </li>
+            <li class="mb-3 d-flex gap-2">
+              <i class="fa fa-check-circle text-primary mt-1"></i>
+              <span>Registered nonprofit organisation</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

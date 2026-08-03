@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block title %}Gallery — Safina Initiative{% endblock %}
+{% block content %}
+<section class="page-banner">
+  <div class="container">
+    <nav aria-label="breadcrumb"><ol class="breadcrumb mb-2">
+      <li class="breadcrumb-item"><a href="{% url 'pages:home' %}" class="text-white-50">Home</a></li>
+      <li class="breadcrumb-item active text-white">Gallery</li>
+    </ol></nav>
+    <h1>Photo Gallery</h1>
+  </div>
+</section>
+<section class="section-pad">
+  <div class="container">
+    <!-- Category filter -->
+    <div class="d-flex flex-wrap gap-2 mb-5 justify-content-center">
+      <button class="btn btn-sm btn-success rounded-pill px-4"
+              onclick="filterGallery('all')">All</button>
+      {% for cat in categories %}
+      <button class="btn btn-sm btn-outline-success rounded-pill px-3"
+              onclick="filterGallery('{{ cat.name|lower }}')">{{ cat.name }}</button>
+      {% endfor %}
+    </div>
+    <div class="row g-3" id="galleryGrid">
+      {% for img in images %}
+      <div class="col-lg-3 col-md-4 col-6 gallery-item"
+           data-category="{{ img.category.name|lower|default:'all' }}">
+        <div class="gallery-thumb rounded-3 overflow-hidden shadow-sm"
+             style="height:200px;"
+             data-bs-toggle="modal" data-bs-target="#imgModal"
+             data-src="{{ img.image.url }}"
+             data-caption="{{ img.caption }}"
+             role="button">
+          <img src="{{ img.image.url }}" alt="{{ img.title|default:'Gallery image' }}"
+               class="w-100 h-100" style="object-fit:cover;transition:transform .3s;"
+               loading="lazy">
+        </div>
+      </div>
+      {% empty %}
+      <div class="col-12 text-center py-5 text-muted">
+        <i class="fa fa-images fa-3x mb-3 text-primary"></i>
+        <p>Gallery images will appear here once added via the admin panel.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox modal -->
+<div class="modal fade" id="imgModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content bg-dark border-0">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white"
+                data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center p-0">
+        <img id="modalImg" src="" alt="" class="img-fluid rounded">
+        <p id="modalCaption" class="text-white-50 small mt-2 pb-3"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% block extra_js %}
+<script>
+// Lightbox
+document.querySelectorAll('.gallery-thumb').forEach(el => {
+  el.addEventListener('click', () => {
+    document.getElementById('modalImg').src        = el.dataset.src;
+    document.getElementById('modalCaption').textContent = el.dataset.caption;
+  });
+});
+// Filter
+function filterGallery(cat) {
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.style.display = (cat === 'all' || item.dataset.category === cat)
+      ? '' : 'none';
+  });
+}
+</script>
+{% endblock %}
+{% endblock %}
