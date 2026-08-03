@@ -1,0 +1,88 @@
+# Docker Compose file for Safina Initiative
+# Defines 4 services: postgres, django, nginx, redis
+
+services:
+
+  # ── PostgreSQL Database ───────────────────────────────
+  postgres:
+    image: postgres:17-alpine
+    container_name: safina_postgres
+    restart: unless-stopped      # restart if it crashes
+    env_file: .env               # read credentials from .env
+    environment:
+      POSTGRES_DB:       ${POSTGRES_DB}
+      POSTGRES_USER:     ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      # persist database data outside the container
+      # if container is deleted, data survives
+      - ./volumes/postgres:/var/lib/postgresql/data
+    healthcheck:
+      # check if postgres is accepting connections
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout:  5s
+      retries:  5
+    networks:
+      - safina_network
+
+  # ── Django Application ────────────────────────────────
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: safina_django
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      POSTGRES_HOST: postgres    # use service name, not localhost
+      POSTGRES_PORT: "5432"
+      DEBUG:         "False"
+    volumes:
+      # share static files with nginx container
+      - ./volumes/static:/app/staticfiles
+      # share media files with nginx container
+      - ./volumes/media:/app/media
+    depends_on:
+      postgres:
+        condition: service_healthy   # wait until postgres is ready
+    expose:
+      - "8000"    # only visible inside Docker network, not to internet
+    networks:
+      - safina_network
+
+  # ── Nginx Web Server ──────────────────────────────────
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: safina_nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"      # expose port 80 to the internet
+    volumes:
+      # mount our custom nginx config
+      - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      # read static files from shared volume
+      - ./volumes/static:/app/staticfiles:ro
+      # read media files from shared volume
+      - ./volumes/media:/app/media:ro
+    depends_on:
+      - django
+    networks:
+      - safina_network
+
+  # ── Redis Cache ───────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: safina_redis
+    restart: unless-stopped
+    expose:
+      - "6379"
+    networks:
+      - safina_network
+
+# ── Shared Network ────────────────────────────────────────
+# All containers can talk to each other by service name
+# postgres, django, nginx, redis can all reach each other
+networks:
+  safina_network:
+    driver: bridge
