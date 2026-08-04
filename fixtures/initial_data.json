@@ -1,0 +1,547 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-07-30T18:48:21.005Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "kapsabet",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-07-31T07:16:18.828Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "kapsabet",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-07-31T07:51:37.815Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Empowering Communities, Building Brighter Futures",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-07-31T07:53:55.996Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "500 Beneficiaries Reached",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-07-31T07:54:53.612Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "2",
+    "object_repr": "700 Students Supported",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-07-31T07:55:29.190Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "3",
+    "object_repr": "2000 Health Outreaches",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-07-31T07:56:14.723Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "4",
+    "object_repr": "25 Partner Organisations",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-07-31T07:57:33.591Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "1",
+    "object_repr": "Amina Wanjiru — Scholarship Beneficiary, Nairobi",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-07-31T07:58:05.388Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "2",
+    "object_repr": "James Otieno — Community Leader, Kisumu",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-07-31T07:58:41.655Z",
+    "user": 1,
+    "content_type": 12,
+    "object_id": "3",
+    "object_repr": "Grace Muthoni — Women's Group Member, Nakuru",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-07-31T08:00:55.428Z",
+    "user": 1,
+    "content_type": 16,
+    "object_id": "1",
+    "object_repr": "Education",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-07-31T08:01:30.949Z",
+    "user": 1,
+    "content_type": 16,
+    "object_id": "2",
+    "object_repr": "Healthcare",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-07-31T08:02:01.277Z",
+    "user": 1,
+    "content_type": 16,
+    "object_id": "3",
+    "object_repr": "Women & Girls",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-07-31T08:02:29.001Z",
+    "user": 1,
+    "content_type": 16,
+    "object_id": "4",
+    "object_repr": "Community",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-07-31T08:06:21.259Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "1",
+    "object_repr": "School Bursary Program",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-07-31T08:08:22.078Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "2",
+    "object_repr": "Mobile Health Clinics",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-07-31T08:12:23.711Z",
+    "user": 1,
+    "content_type": 15,
+    "object_id": "3",
+    "object_repr": "Girls Empowerment Program",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-07-31T08:15:27.189Z",
+    "user": 1,
+    "content_type": 20,
+    "object_id": "1",
+    "object_repr": "50 Students Receive Full Bursaries for the 2025 School Year",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-07-31T08:17:09.874Z",
+    "user": 1,
+    "content_type": 20,
+    "object_id": "2",
+    "object_repr": "Mobile Clinic Reaches 500 Patients in Western Kenya",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$RLLVdkAMLGKgNDGWcranXE$sR2Ejztb4e3gePHsHaG/F7wgb16fJmHTPvadPIgfMxo=",
+    "last_login": "2026-07-30T18:45:13.792Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "kipchimoti@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-07-30T10:10:08.638Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "3563u0y2h3lyno45extdgwqjxnyfhql7",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hAoDDAu3XsGMjAgVdMmpV0Z765NutDtf-_9l4i0rS1uvSxxZHEWWpx-t0T5UaYd8J2m2yzzPK3LmOSuyIN2eZ25PC-H-3fQqLdvXSyDQ43Gh2pIZQcWqkE0yJ48D0i6ojepcjIECmwFm60KGlx2Q7Di_QHKbDcA:1wpNj4:p1hu2UNr5Am5GhcUvFLcJ-NMWTX3g_aLkhTOHoPCrpQ",
+    "expire_date": "2026-08-13T10:10:54.484Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "qyy7tqv9zbwk73rchzymodzbf16hosm3",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hAoDDAu3XsGMjAgVdMmpV0Z765NutDtf-_9l4i0rS1uvSxxZHEWWpx-t0T5UaYd8J2m2yzzPK3LmOSuyIN2eZ25PC-H-3fQqLdvXSyDQ43Gh2pIZQcWqkE0yJ48D0i6ojepcjIECmwFm60KGlx2Q7Di_QHKbDcA:1wpVkn:AdXR3ZCTJWLcSHkqB7nwb6hm_LmOJF2XRmpPxyrRuMY",
+    "expire_date": "2026-08-13T18:45:13.800Z"
+  }
+},
+{
+  "model": "core.heroslide",
+  "pk": 2,
+  "fields": {
+    "title": "Empowering Communities, Building Brighter Futures",
+    "subtitle": "We walk alongside families across Kenya to create lasting change through education, healthcare, and economic opportunity — one community at a time.",
+    "image": "hero/1.jpeg",
+    "btn_label": "Explore Our Work",
+    "btn_url": "/projects/",
+    "order": 1,
+    "is_active": true
+  }
+},
+{
+  "model": "core.statistic",
+  "pk": 1,
+  "fields": {
+    "label": "Beneficiaries Reached",
+    "value": 500,
+    "icon": "fa-users",
+    "order": 1,
+    "is_active": true
+  }
+},
+{
+  "model": "core.statistic",
+  "pk": 2,
+  "fields": {
+    "label": "Students Supported",
+    "value": 700,
+    "icon": "fa-graduation-cap",
+    "order": 2,
+    "is_active": true
+  }
+},
+{
+  "model": "core.statistic",
+  "pk": 3,
+  "fields": {
+    "label": "Health Outreaches",
+    "value": 2000,
+    "icon": "fa-heart-pulse",
+    "order": 3,
+    "is_active": true
+  }
+},
+{
+  "model": "core.statistic",
+  "pk": 4,
+  "fields": {
+    "label": "Partner Organisations",
+    "value": 25,
+    "icon": "fa-handshake",
+    "order": 4,
+    "is_active": true
+  }
+},
+{
+  "model": "core.testimonial",
+  "pk": 1,
+  "fields": {
+    "name": "Amina Wanjiru",
+    "role": "Scholarship Beneficiary, Nairobi",
+    "quote": "Safina Initiative gave me the chance to finish school when my family could not afford the fees. Today I am in university studying nursing because of their support.",
+    "photo": "",
+    "is_active": true,
+    "created_at": "2026-07-31T07:57:33.588Z"
+  }
+},
+{
+  "model": "core.testimonial",
+  "pk": 2,
+  "fields": {
+    "name": "James Otieno",
+    "role": "Community Leader, Kisumu",
+    "quote": "The mobile health clinic came to our village for the first time last year. Over 200 families received care they had never had access to before. It was life changing.",
+    "photo": "",
+    "is_active": true,
+    "created_at": "2026-07-31T07:58:05.386Z"
+  }
+},
+{
+  "model": "core.testimonial",
+  "pk": 3,
+  "fields": {
+    "name": "Grace Muthoni",
+    "role": "Women's Group Member, Nakuru",
+    "quote": "Through the women's empowerment program I started my own small business. I now employ three other women from my community and we are all thriving.",
+    "photo": "",
+    "is_active": true,
+    "created_at": "2026-07-31T07:58:41.651Z"
+  }
+},
+{
+  "model": "projects.category",
+  "pk": 1,
+  "fields": {
+    "name": "Education",
+    "slug": "education",
+    "icon": "fa-graduation-cap",
+    "order": 1
+  }
+},
+{
+  "model": "projects.category",
+  "pk": 2,
+  "fields": {
+    "name": "Healthcare",
+    "slug": "healthcare",
+    "icon": "fa-heart-pulse",
+    "order": 2
+  }
+},
+{
+  "model": "projects.category",
+  "pk": 3,
+  "fields": {
+    "name": "Women & Girls",
+    "slug": "women-girls",
+    "icon": "fa-venus",
+    "order": 3
+  }
+},
+{
+  "model": "projects.category",
+  "pk": 4,
+  "fields": {
+    "name": "Community",
+    "slug": "community",
+    "icon": "fa-seedling",
+    "order": 4
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 1,
+  "fields": {
+    "title": "School Bursary Program",
+    "slug": "school-bursary-program",
+    "category": 1,
+    "summary": "Supporting bright students from low-income families with full school bursaries so no child misses out on education due to poverty.",
+    "description": "The School Bursary Program has supported over 120 students across Nairobi and Rift Valley counties since 2015. We partner with local schools to identify the most vulnerable students and provide full bursaries covering tuition, uniforms, books, and meals. Our goal is simple — no child should miss school because their family cannot afford it.",
+    "image": "projects/2.jpeg",
+    "status": "ongoing",
+    "beneficiaries": 120,
+    "location": "Nairobi & Rift Valley",
+    "start_date": "2026-07-01",
+    "end_date": "2026-08-21",
+    "is_featured": true,
+    "is_published": true,
+    "meta_description": "",
+    "created_at": "2026-07-31T08:06:21.254Z",
+    "updated_at": "2026-07-31T08:06:21.254Z"
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 2,
+  "fields": {
+    "title": "Mobile Health Clinics",
+    "slug": "mobile-health-clinics",
+    "category": 2,
+    "summary": "Bringing essential healthcare services directly to remote communities that have little or no access to formal medical facilities.",
+    "description": "Our Mobile Health Clinics travel to underserved villages across Kenya every month, providing free consultations, maternal health services, immunisations, and health education. Since launching in 2018, we have conducted over 80 outreaches reaching more than 3,000 patients who would otherwise go without care.",
+    "image": "projects/3.jpeg",
+    "status": "ongoing",
+    "beneficiaries": 3000,
+    "location": "Western & Rift Valley Kenya",
+    "start_date": "2026-07-31",
+    "end_date": "2026-08-06",
+    "is_featured": true,
+    "is_published": true,
+    "meta_description": "",
+    "created_at": "2026-07-31T08:08:22.074Z",
+    "updated_at": "2026-07-31T08:08:22.074Z"
+  }
+},
+{
+  "model": "projects.project",
+  "pk": 3,
+  "fields": {
+    "title": "Girls Empowerment Program",
+    "slug": "girls-empowerment-program",
+    "category": 3,
+    "summary": "Mentorship, skills training, and business support for young women and girls to build confidence, earn income, and lead in their communities.",
+    "description": "The Girls Empowerment Program runs in 12 community centres across Kenya, offering mentorship, vocational training, financial literacy, and startup support. Over 200 young women have graduated from the program. Many have started their own businesses and are now mentoring the next generation of girls coming through.",
+    "image": "projects/biblioteca-valenciana-nicolau-primitiu-mDV-SsavXEw-unsplash.jpg",
+    "status": "ongoing",
+    "beneficiaries": 150,
+    "location": "Nandi,Kapsabet",
+    "start_date": "2026-04-07",
+    "end_date": "2026-11-30",
+    "is_featured": true,
+    "is_published": true,
+    "meta_description": "",
+    "created_at": "2026-07-31T08:12:23.706Z",
+    "updated_at": "2026-07-31T08:12:23.706Z"
+  }
+},
+{
+  "model": "news.newsarticle",
+  "pk": 1,
+  "fields": {
+    "title": "50 Students Receive Full Bursaries for the 2025 School Year",
+    "slug": "50-students-receive-full-bursaries-for-the-2025-sc",
+    "summary": "Safina Initiative has awarded full bursaries to 50 deserving students across Nairobi county, covering tuition, uniforms, and meals for the entire school year.",
+    "body": "This year marks our biggest bursary intake yet. After receiving over 300 applications from schools across Nairobi, our team visited 45 schools and interviewed 120 candidates before selecting 50 students who demonstrated both academic potential and genuine financial need. Each student will receive full coverage of their school fees, uniforms, books, and daily meals. We are proud to invest in the next generation of Kenyan leaders.",
+    "image": "news/4.jpeg",
+    "is_featured": true,
+    "is_published": true,
+    "meta_description": "",
+    "published_at": "2025-07-13",
+    "created_at": "2026-07-31T08:15:27.180Z",
+    "updated_at": "2026-07-31T08:15:27.180Z",
+    "tags": []
+  }
+},
+{
+  "model": "news.newsarticle",
+  "pk": 2,
+  "fields": {
+    "title": "Mobile Clinic Reaches 500 Patients in Western Kenya",
+    "slug": "mobile-clinic-reaches-500-patients-in-western-keny",
+    "summary": "Our latest mobile health outreach to Bungoma and Kakamega counties reached over 500 patients in just three days, providing free consultations and essential medicines.",
+    "body": "Last month our team of doctors, nurses, and community health workers spent three days in Bungoma and Kakamega counties. We set up clinics in three market centres and schools, seeing over 500 patients across all age groups. Services included general consultations, maternal health checks, child immunisations, malaria testing and treatment, and nutritional assessments. Community members walked up to 10 kilometres to access care — a clear reminder of how much this work matters.",
+    "image": "news/5.jpeg",
+    "is_featured": true,
+    "is_published": true,
+    "meta_description": "",
+    "published_at": "2025-04-02",
+    "created_at": "2026-07-31T08:17:09.865Z",
+    "updated_at": "2026-07-31T08:17:09.865Z",
+    "tags": []
+  }
+},
+{
+  "model": "volunteers.volunteerapplication",
+  "pk": 1,
+  "fields": {
+    "first_name": "Sheldon",
+    "last_name": "Moti",
+    "email": "kipchimoti@gmail.com",
+    "phone": "+254713334240",
+    "skills": "healthcare",
+    "availability": "weekdays",
+    "motivation": "i love doing the charity work",
+    "status": "pending",
+    "created_at": "2026-07-30T18:46:02.927Z"
+  }
+},
+{
+  "model": "donations.donationinquiry",
+  "pk": 1,
+  "fields": {
+    "name": "Sheldon Kipchirchir Moti",
+    "email": "kipchimoti@gmail.com",
+    "phone": "+254713334240",
+    "donation_type": "in_kind",
+    "amount": "5000.00",
+    "message": "deeds",
+    "status": "pending",
+    "created_at": "2026-08-03T11:26:57.349Z"
+  }
+}
+]
