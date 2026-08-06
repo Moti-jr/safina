@@ -60,37 +60,55 @@
 </section>
 
 <!-- Values -->
-<section class="section-pad bg-light-custom">
+
+<section class="s" style="background:#fff;">
   <div class="container">
     <div class="text-center mb-5">
-      <span class="badge-primary mb-2 d-inline-block">What Drives Us</span>
-      <h2 class="section-title">Our Core Values</h2>
-      <div class="divider mx-auto mt-2"></div>
+      <div class="eyebrow-2 justify-content-center">What Drives Us</div>
+      <h2 class="big-title">Our Core Values</h2>
     </div>
     <div class="row g-4">
-      {% for value in values %}
-      <div class="col-md-4">
-        <div class="card-custom p-4 h-100 text-center">
-          <div class="value-icon mb-3">
-            <i class="fa {{ value.icon }} fa-2x text-primary"></i>
+      {% if core_values %}
+        {% for value in core_values %}
+        <div class="col-lg-3 col-md-6">
+          <div class="proj-card p-4 text-center h-100">
+            <div class="mb-3"
+                 style="width:64px;height:64px;border-radius:18px;
+                        background:linear-gradient(135deg,#0A6E4F,#2E8B57);
+                        display:flex;align-items:center;justify-content:center;
+                        margin:0 auto;box-shadow:0 8px 24px rgba(10,110,79,.3);">
+              <i class="fa {{ value.icon }} fa-xl text-white"></i>
+            </div>
+            <h5 style="font-weight:800;font-size:1rem;margin-bottom:8px;">
+              {{ value.title }}
+            </h5>
+            <p style="font-size:.85rem;color:#777;line-height:1.7;margin:0;">
+              {{ value.description }}
+            </p>
           </div>
-          <h5 class="fw-600">{{ value.title }}</h5>
-          <p class="text-muted mb-0">{{ value.description }}</p>
         </div>
-      </div>
-      {% empty %}
-      {% for item in default_values %}
-      <div class="col-md-4">
-        <div class="card-custom p-4 h-100 text-center">
-          <div class="mb-3">
-            <i class="fa {{ item.icon }} fa-2x text-primary"></i>
+        {% endfor %}
+      {% else %}
+        {% for v in default_values %}
+        <div class="col-lg-3 col-md-6">
+          <div class="proj-card p-4 text-center h-100">
+            <div class="mb-3"
+                 style="width:64px;height:64px;border-radius:18px;
+                        background:linear-gradient(135deg,#0A6E4F,#2E8B57);
+                        display:flex;align-items:center;justify-content:center;
+                        margin:0 auto;box-shadow:0 8px 24px rgba(10,110,79,.3);">
+              <i class="fa {{ v.icon }} fa-xl text-white"></i>
+            </div>
+            <h5 style="font-weight:800;font-size:1rem;margin-bottom:8px;">
+              {{ v.title }}
+            </h5>
+            <p style="font-size:.85rem;color:#777;line-height:1.7;margin:0;">
+              {{ v.desc }}
+            </p>
           </div>
-          <h5 class="fw-semibold">{{ item.title }}</h5>
-          <p class="text-muted mb-0">{{ item.desc }}</p>
         </div>
-      </div>
-      {% endfor %}
-      {% endfor %}
+        {% endfor %}
+      {% endif %}
     </div>
   </div>
 </section>

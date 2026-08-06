@@ -101,3 +101,37 @@ class FAQ(models.Model):
 
     def __str__(self):
         return self.question
+
+
+
+class CoreValue(models.Model):
+    """What Drives Us section — core values of the organisation."""
+    title       = models.CharField(max_length=100)
+    description = models.TextField()
+    icon        = models.CharField(max_length=50, blank=True,
+                                   help_text='Font Awesome class e.g. fa-heart')
+    order       = models.PositiveIntegerField(default=0)
+    is_active   = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ['order']
+
+    def __str__(self):
+        return self.title
+
+
+class CEOMessage(models.Model):
+    """CEO / Executive Director remarks shown on homepage."""
+    name        = models.CharField(max_length=100)
+    title       = models.CharField(max_length=100,
+                                   default='Executive Director')
+    message     = models.TextField()
+    photo       = models.ImageField(upload_to='team/', blank=True)
+    signature   = models.ImageField(upload_to='team/', blank=True)
+    is_active   = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name = 'CEO Message'
+
+    def __str__(self):
+        return f'{self.name} — {self.title}'

@@ -56,3 +56,16 @@ class TeamMemberAdmin(admin.ModelAdmin):
 class FAQAdmin(admin.ModelAdmin):
     list_display  = ['question', 'order', 'is_active']
     list_editable = ['order', 'is_active']
+
+
+from .models import CoreValue, CEOMessage
+
+@admin.register(CoreValue)
+class CoreValueAdmin(admin.ModelAdmin):
+    list_display  = ['title', 'icon', 'order', 'is_active']
+    list_editable = ['order', 'is_active']
+
+
+@admin.register(CEOMessage)
+class CEOMessageAdmin(admin.ModelAdmin):
+    list_display = ['name', 'title', 'is_active']

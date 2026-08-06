@@ -1063,6 +1063,63 @@ body { font-family:'Inter',sans-serif; overflow-x:hidden; background:#fff; }
 </section>
 {% endif %}
 
+<!-- ════════════════════════════════════════════════════
+     CEO MESSAGE
+════════════════════════════════════════════════════ -->
+{% if ceo_message %}
+<section class="s" style="background:#f8fbf9;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <div style="background:#fff;border-radius:24px;padding:48px;
+                    box-shadow:0 4px 32px rgba(0,0,0,.07);
+                    border:1px solid rgba(10,110,79,.08);
+                    position:relative;overflow:hidden;">
+          <!-- quote mark -->
+          <div style="position:absolute;top:20px;right:30px;
+                      font-size:8rem;color:rgba(10,110,79,.06);
+                      font-family:Georgia,serif;line-height:1;">"</div>
+          <div class="row align-items-center g-4">
+            <div class="col-md-3 text-center">
+              {% if ceo_message.photo %}
+              <img src="{{ ceo_message.photo.url }}"
+                   alt="{{ ceo_message.name }}"
+                   style="width:120px;height:120px;object-fit:cover;
+                          border-radius:50%;border:4px solid rgba(10,110,79,.15);
+                          box-shadow:0 8px 24px rgba(10,110,79,.2);">
+              {% else %}
+              <div style="width:120px;height:120px;border-radius:50%;
+                          background:linear-gradient(135deg,#0A6E4F,#2E8B57);
+                          display:flex;align-items:center;justify-content:center;
+                          margin:0 auto;font-size:2.5rem;color:#fff;font-weight:800;">
+                {{ ceo_message.name|first }}
+              </div>
+              {% endif %}
+              <div style="margin-top:14px;">
+                <div style="font-weight:800;font-size:.95rem;">
+                  {{ ceo_message.name }}
+                </div>
+                <div style="font-size:.78rem;color:#0A6E4F;font-weight:600;
+                            margin-top:2px;">
+                  {{ ceo_message.title }}
+                </div>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="eyebrow-2">A Message From Our {{ ceo_message.title }}</div>
+              <p style="font-size:1rem;line-height:1.9;color:#555;
+                        font-style:italic;margin:0;">
+                "{{ ceo_message.message }}"
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
 <!-- ════════════════════════════════════════════════════════
      CTA
 ════════════════════════════════════════════════════════ -->

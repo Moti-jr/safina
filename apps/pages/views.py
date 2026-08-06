@@ -7,7 +7,76 @@ from apps.news.models import NewsArticle
 from apps.pages.models import Page, MilestoneEvent
 
 
+from apps.core.models import (
+    HeroSlide, Statistic, Testimonial, TeamMember, FAQ,
+    CoreValue, CEOMessage
+)
+
 class HomeView(TemplateView):
+    template_name = 'pages/home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['slides']       = HeroSlide.objects.filter(is_active=True)
+        context['stats']        = Statistic.objects.filter(is_active=True)
+        context['testimonials'] = Testimonial.objects.filter(is_active=True)
+        context['team']         = TeamMember.objects.filter(is_active=True)
+        context['core_values']  = CoreValue.objects.filter(is_active=True)
+        context['ceo_message']  = CEOMessage.objects.filter(is_active=True).first()
+        context['projects']     = Project.objects.filter(
+                                    is_featured=True, is_published=True)[:3]
+        context['news']         = NewsArticle.objects.filter(
+                                    is_published=True)[:3]
+        context['default_stats'] = [
+            {'icon': 'fa-users',          'value': 500,  'label': 'Beneficiaries'},
+            {'icon': 'fa-graduation-cap', 'value': 120,  'label': 'Students Supported'},
+            {'icon': 'fa-heart-pulse',    'value': 80,   'label': 'Health Outreaches'},
+            {'icon': 'fa-handshake',      'value': 15,   'label': 'Partner Organisations'},
+        ]
+        context['default_projects'] = [
+            {'icon': 'fa-graduation-cap', 'category': 'Education',
+             'title': 'School Bursary Program',
+             'desc': 'Supporting bright students from low-income families.'},
+            {'icon': 'fa-heart-pulse', 'category': 'Healthcare',
+             'title': 'Mobile Health Clinics',
+             'desc': 'Bringing healthcare directly to remote communities.'},
+            {'icon': 'fa-venus', 'category': 'Women & Girls',
+             'title': 'Girls Empowerment',
+             'desc': 'Mentorship and skills training for young women.'},
+        ]
+        context['focus_areas'] = [
+            {'icon': 'fa-graduation-cap', 'title': 'Education',
+             'color': '#4ade80',
+             'desc': 'Quality learning for every child.'},
+            {'icon': 'fa-heart-pulse', 'title': 'Healthcare',
+             'color': '#F4B400',
+             'desc': 'Accessible health services for entire families.'},
+            {'icon': 'fa-venus', 'title': 'Women & Girls',
+             'color': '#a78bfa',
+             'desc': 'Empowering women to lead and earn.'},
+            {'icon': 'fa-seedling', 'title': 'Community',
+             'color': '#34d399',
+             'desc': 'Sustainable livelihoods built from within.'},
+        ]
+        context['default_testimonials'] = [
+            {'name': 'Amina Wanjiru', 'role': 'Scholarship Beneficiary, Nairobi',
+             'quote': 'Safina Initiative gave me the chance to finish school when my family could not afford the fees. Today I am in university studying nursing.'},
+            {'name': 'James Otieno', 'role': 'Community Leader, Kisumu',
+             'quote': 'The mobile health clinic came to our village for the first time. Over 200 families received care they had never had access to before.'},
+            {'name': 'Grace Muthoni', 'role': 'Women\'s Group Member, Nakuru',
+             'quote': 'Through the women\'s empowerment program I started my own business. I now employ three other women from my community.'},
+        ]
+        context['default_values'] = [
+            {'icon': 'fa-heart',       'title': 'Compassion',
+            'desc': 'We lead with empathy and genuine care for every person we serve.'},
+            {'icon': 'fa-handshake',   'title': 'Integrity',
+            'desc': 'We are transparent, accountable, and honest in everything we do.'},
+            {'icon': 'fa-people-group','title': 'Community',
+            'desc': 'We believe lasting change is built from within communities themselves.'},
+            {'icon': 'fa-seedling',    'title': 'Sustainability',
+            'desc': 'Every program is designed to create impact that outlasts our involvement.'},
+]
+        return context
     template_name = 'pages/home.html'
 
     def get_context_data(self, **kwargs):
